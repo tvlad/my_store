@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
   
   after_initialize {puts "initialized"} # Item.new; Item.first
   after_save       {puts "saved"}  # item.save; item.create; item.update
-  after_create {category.inc(:items_count, 1)}
+#  after_create {category.inc(:items_count, 1)}
   after_update {puts "updated"}
-  after_destroy {category.inc(:items_count, -1)}
+#  after_destroy {category.inc(:items_count, -1)}
 end
