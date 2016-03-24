@@ -7,14 +7,43 @@ class ItemsController < ApplicationController
     
   end
   
+  # /items/1 GET
+  def show
+    
+  end
+  
+  # /items/new GET
+  def new
+    
+  end
+  
+  # /items/1/ GET
+  def edit
+    
+  end
+  
+  # /items POST
   def create 
     #    p params 
     #    @item = Item.create(name: params[:name], description: params[:description], 
     #      price: params[:price], real: params[:real], weight: params[:weight])
-    params.permit!
-    @item = Item.create(params[:item])
-    p params
-    render text: "#{@item.id}: #{@item.name} (#{!@item.new_record?})"
+    
+    #    params.permit!
+    #    @item = Item.create(params[:item])
+    #    p params
+    #    render text: "#{@item.id}: #{@item.name} (#{!@item.new_record?})"
+    render text: "Item created"
+
+  end
+  
+  # /items/1 PUT
+  def update
+    
+  end
+  
+  # /items/1 DELETE
+  def destroy
+    
   end
   
 end

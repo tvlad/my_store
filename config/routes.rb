@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  get ':controller(/:action(/:id))(.:format)'
+  #  get ':controller(/:action(/:id))(.:format)'
   #  match ':controller(/:action(/:id))(.:format)', via: [:get, :post]
+  resources :items
+  
 end
