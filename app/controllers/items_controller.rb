@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
-  protect_from_forgery with: :null_session #it resolved issue with "Token error"
+  #it resolved issue with "Token error"
+    protect_from_forgery with: :null_session 
   
   def index
     #    @items =  Item.all
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
   
   # /items/new GET
   def new
-    
+    @item = Item.new
   end
   
   # /items/1/ GET
@@ -37,8 +38,17 @@ class ItemsController < ApplicationController
     #    @item = Item.create(params[:item])
     #    p params
     #    render text: "#{@item.id}: #{@item.name} (#{!@item.new_record?})"
-    render text: "Item created"
+    
+    #    render text: "Item created"
 
+    #    render params.inspect
+    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description)
+    @item = Item.create(item_params)
+    if @item.errors.empty?
+      redirect_to item_path(@item.id)
+    else
+      render "new"
+    end
   end
   
   # /items/1 PUT

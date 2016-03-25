@@ -1,5 +1,9 @@
 <% @items.each do |i| %>
 
-<p> <%= link_to i.name, item_path(i) %></p>
+<p> <%=  link_to i.name, item_path(i) %> </p>
+
 
 <% end %>
+
+<br/>
+<p> <%=  link_to "Create new", item_path("new") %> </p>
