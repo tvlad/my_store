@@ -1,15 +1,20 @@
 class ItemsController < ApplicationController
   
+  protect_from_forgery with: :null_session #it resolved issue with "Token error"
+  
   def index
+    #    @items =  Item.all
+    #    render text: @items.map{|i| "#{i.id}. Name - #{i.name}, Price - #{i.price}"}.join("<br/>")
     @items =  Item.all
-    
-    render text: @items.map{|i| "#{i.id}. Name - #{i.name}, Price - #{i.price}"}.join("<br/>")
-    
   end
   
   # /items/1 GET
   def show
-    
+    if @item = Item.where(id: params[:id]).first
+      render "items/show"
+    else
+      render text: "Page not found \n 404",  status: 404
+    end
   end
   
   # /items/new GET
