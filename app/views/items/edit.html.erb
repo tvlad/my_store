@@ -1,6 +1,13 @@
+<p><%=  link_to "Home", items_path %></p>
 <h1>Edit item</h1>
-<br>
-<form action="/items" method="POST">
-    <input type="text" name="title"/>
-    <input type="submit"/>
-</form>
+
+<%= form_for @item do |f| %>
+
+  <p> <b>Name</b><br/> <%= f.text_field :name %> </p>
+  <p> <b>Price</b><br/> <%= f.text_field :price %> </p>
+  <p> <b>Description</b><br/> <%= f.text_field :description %> </p>
+  <p> <b>Weight</b><br/> <%= f.text_field :weight %> </p>
+
+  <br/>
+  <p> <%= f.submit "Save Item"  %>  </p>
+<% end %>

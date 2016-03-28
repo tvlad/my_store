@@ -1,4 +1,4 @@
-<p><%=  link_to "Home", item_path(".") %></p>
+<p><%=  link_to "Home", items_path %></p>
 
 <h1>Selected item - <%=  @item.name%></h1>
 <ul>
@@ -6,4 +6,6 @@
     <li>Price: <%=   @item.price %> $</li>
     <li>Description: <%= @item.description %></li>
 </ul>
-<p>id <%=  @item.id%></p>
+<p>id - <%=  @item.id%></p>
+<br/>
+<p><%=  link_to "Edit item", edit_item_path %></p>
