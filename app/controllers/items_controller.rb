@@ -67,7 +67,10 @@ class ItemsController < ApplicationController
   
   # /items/1 DELETE
   def destroy
-    
+#    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description)
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to action: "index"
   end
   
 end
