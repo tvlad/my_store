@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   #it resolved issue with "Token error"
-    protect_from_forgery with: :null_session 
+  protect_from_forgery with: :null_session 
   
   def index
     #    @items =  Item.all
@@ -45,9 +45,11 @@ class ItemsController < ApplicationController
     item_params = params.require(:item).permit(:price, :name, :real, :weight, :description)
     @item = Item.create(item_params)
     if @item.errors.empty?
-      redirect_to item_path(@item.id)
+      redirect_to item_path(@item)
+      #      render "show"
     else
       render "new"
+      #      redirect_to item_path("/items/new")
     end
   end
   
