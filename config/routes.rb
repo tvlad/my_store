@@ -56,6 +56,9 @@ Rails.application.routes.draw do
   
   #  get ':controller(/:action(/:id))(.:format)'
   #  match ':controller(/:action(/:id))(.:format)', via: [:get, :post]
-  resources :items
+  resources :items do
+    get :upvote, on: :member
+    get :expensive, on: :collection
+  end
   
 end
