@@ -17,12 +17,12 @@ class ItemsController < ApplicationController
     unless @item
       render text: "Page not found \n 404",  status: 404
     end
-#    old code with the IF implementation 
-#    if @item = Item.where(id: params[:id]).first
-#      render "items/show"
-#    else
-#      render text: "Page not found \n 404",  status: 404
-#    end
+    #    old code with the IF implementation 
+    #    if @item = Item.where(id: params[:id]).first
+    #      render "items/show"
+    #    else
+    #      render text: "Page not found \n 404",  status: 404
+    #    end
   end
   
   # /items/new GET
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   
   # /items/1/ GET
   def edit
-#    @item = Item.find(params[:id])
+    #    @item = Item.find(params[:id])
   end
   
   # /items POST
@@ -91,11 +91,15 @@ class ItemsController < ApplicationController
   private
   
   def find_item
-    @item = Item.find(params[:id])
+    #    @item = Item.find(params[:id]) #-was changed in ep. 17
+    @item = Item.where(id: params[:id]).first
+    render_404 unless @item
   end
   
-  def check_if_admin
-#    render text: "Access denied", status: 403 unless params[:admin] 
-  end
+#  removed to app_controller in ep.17
+#  def check_if_admin
+#    #    render text: "Access denied", status: 403 unless params[:admin] 
+#    render_403 unless params[:admin]
+#  end
   
 end
