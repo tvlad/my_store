@@ -42,5 +42,12 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'paperclip'
+end
+
+group :test do
+#  I added these in ep.18
+  gem 'rspec-rails'
+  gem 'factory_girl'
 end
 
