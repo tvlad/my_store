@@ -1,3 +1,5 @@
 http://localhost:3000/items/create?name=car1&description=deus+ex&price=5000&weight=0&real=1
 
 http://localhost:3000/items/create?item[name]=car1&item[description]=deus+ex&item[price]=5000&item[weight]=0&item[real]=1
+
+user5 = User.new(login: "user5", email: "qwe", password: "qwerty", password_confirmation: "qwerty"
