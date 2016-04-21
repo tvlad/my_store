@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   before_filter :find_item, only: [:show, :edit, :update, :destroy, :upvote]
-  before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+#  before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
   
   #it resolved issue with "Token error"
   protect_from_forgery with: :null_session 
