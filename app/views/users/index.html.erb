@@ -1,0 +1,32 @@
+<p> <%=  link_to "HOME", items_path %> </p>
+
+<h1>Users</h1>
+
+<% if @users.empty? %>
+  <b>No users yet</b>
+<% else %>
+  
+  
+  
+  <table>
+      <tr>
+          <th>user id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th></th>
+      </tr>
+
+      <% @users.each do |i| %>
+
+        <tr>
+            <td><%= i.id %> </td>
+            <td><%= link_to i.login, user_path(i) %> </td>
+            <td><%= i.email %></td>
+        </tr>
+      <% end %>
+  </table>
+
+<% end %>
+
+<br/>
+<p> <%=  link_to "Register", user_path("new") %> </p>

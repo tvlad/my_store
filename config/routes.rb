@@ -61,4 +61,6 @@ Rails.application.routes.draw do
     get :expensive, on: :collection
   end
   
+  resources :users
+  
 end
