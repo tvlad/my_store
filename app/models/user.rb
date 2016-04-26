@@ -1,9 +1,15 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   
   #  attr_accessible :login # depricated for rails 4.x
+  
 
-  validates :password, length: { minimum: 4 }
-  validates :login, :email, :password, :password_confirmation, presence: true
+#  validates :password, length: { minimum: 4 }
+#  validates :login, :email, :password, :password_confirmation, presence: true
+  validates :email, presence: true
   
   validate :check_password_and_password_confirmation
   #  validates :email, email_format: { message: "doesn't look like an email address" }

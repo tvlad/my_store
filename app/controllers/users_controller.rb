@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    
     if @user = User.where(id: params[:id]).first
       render "users/show"
     else
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
     #    render text: "Item created"
 
     #    render params.inspect
-    user_params = params.require(:user).permit(:login, :email, :password)
+    user_params = params.require(:user).permit(:email)
     @user = User.create(user_params)
     if @user.errors.empty?
       redirect_to item_path(@user)

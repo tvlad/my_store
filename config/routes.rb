@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+ 
+#  get 'users'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,5 +66,11 @@ Rails.application.routes.draw do
   end
   
   resources :users
+  
+  # the path for the home for the "device"
+  root 'items#index'
+  
+  # the user is redirected to the user profile page after signed in
+#  get 'items', as: 'user_root'
   
 end
