@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
- 
+   
 #  get 'users'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -60,12 +59,22 @@ Rails.application.routes.draw do
   
   #  get ':controller(/:action(/:id))(.:format)'
   #  match ':controller(/:action(/:id))(.:format)', via: [:get, :post]
+  devise_for :users
+  
   resources :items do
     get :upvote, on: :member
     get :expensive, on: :collection
   end
   
-  resources :users
+  resources :users 
+
+#  devise_scope :user do
+#    get "users/sign_out" => "devise/session#destroy"
+#  end
+  
+
+  
+  get "admin/users_count" => "admin#users_count"
   
   # the path for the home for the "device"
   root 'items#index'
