@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def index
     #    @items =  Item.all
     #    render text: @items.map{|i| "#{i.id}. Name - #{i.name}, Price - #{i.price}"}.join("<br/>")
-    @items =  Item.all
+    @items =  Item.all.order('votes_count desc', 'price desc').limit(3)
   end
   
   # /items/1 GET
