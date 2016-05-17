@@ -11,16 +11,33 @@
 
 <h1>ITEMS</h1>
 
+ <style type="text/css">
+   TABLE {
+    width: 800px;   /* Ширина таблицы */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого ячеек */
+    border: 1px solid black;
+   }
+   TH {
+    text-align: left; /* Выравнивание по левому краю */
+    border-bottom: 1px solid #000; /* Линия снизу */
+   }
+   
+  </style>
+
 <% if @items.empty? %>
   <b>No items in store</b>
 <% else %>
-  <table>
+  <table cellspacing="0"  >
       <tr>
           <th>item id</th>
           <th>Name</th>
           <th>Price</th>
           <th>Created at</th>
-          <th></th>
+          <th>Delete</th>
+          <th>Rate+</th>   
+          <th>Rate-</th>
       </tr>
 
       <% @items.each do |i| %>
@@ -32,6 +49,7 @@
             <td><%= i.created_at%> </td>
             <td><%= link_to "Delete item", i, method: :delete, data: {confirm: "Are you really want to delete this one?"} %></td>
             <td>Rate: <%= i.votes_count %>, <%=  link_to "+", upvote_item_path(i) %></td>
+            <td>Rate: <%= i.votes_count %>, <%=  link_to "-", devote_item_path(i) %></td>
         </tr>
       <% end %>
   </table>

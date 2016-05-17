@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   
-  before_filter :find_item, only: [:show, :edit, :update, :destroy, :upvote]
+  before_filter :find_item, only: [:show, :edit, :update, :destroy, :upvote, :devote]
 #  before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
   
   #it resolved issue with "Token error"
@@ -84,6 +84,12 @@ class ItemsController < ApplicationController
   
   def upvote
     @item.increment!(:votes_count)
+    redirect_to action: :index
+  end
+  
+  #  decrease vote
+  def devote
+    @item.decrement!(:votes_count)
     redirect_to action: :index
   end
   
