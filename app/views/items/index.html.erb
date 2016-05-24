@@ -13,7 +13,7 @@
 
  <style type="text/css">
    TABLE {
-    width: 800px;   /* Ширина таблицы */
+    width: 1000px;   /* Ширина таблицы */
    }
    TD, TH {
     padding: 3px; /* Поля вокруг содержимого ячеек */
@@ -33,6 +33,7 @@
       <tr>
           <th>item id</th>
           <th>Name</th>
+          <th>Photo</th>
           <th>Price</th>
           <th>Created at</th>
           <th>Delete</th>
@@ -45,6 +46,7 @@
         <tr>
             <td><%= i.id %> </td>
             <td><%= link_to i.name, item_path(i) %> </td>
+            <td><%= image_tag i.image.url.to_s, width: '50', height: '50' if i.image %> </td>
             <td><%= i.price %> $</td>
             <td><%= i.created_at%> </td>
             <td><%= link_to "Delete item", i, method: :delete, data: {confirm: "Are you really want to delete this one?"} %></td>

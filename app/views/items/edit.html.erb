@@ -1,9 +1,11 @@
 <p><%=  link_to "Home", items_path %></p>
 <h1>Edit item</h1>
 
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => {:multipart => true} do |f| %>
 
   <%= render partial: "form", locals: {f: f} %>
+
+ <p> <%= f.file_field :image %> </p>
 
   <br/>
   <p> <%= f.submit "Save Item"  %>  </p>

@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   
   before_filter :find_item, only: [:show, :edit, :update, :destroy, :upvote, :devote]
-#  before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
+  #  before_filter :check_if_admin, only: [:edit, :update, :new, :create, :destroy]
   
   #it resolved issue with "Token error"
   protect_from_forgery with: :null_session 
@@ -14,7 +14,11 @@ class ItemsController < ApplicationController
     @items = @items.where("created_at >= ?", 1.day.ago) if params[:today]
     @items = @items.where("votes_count >= ?", params[:votes_from]) if params[:votes_from]
     @items = @items.order('votes_count desc', 'price desc').limit(50)
-  end
+    
+    #    method for "eager loading" - not work now, because it's need to implement "has_one - image"
+    #    @items = @items.includes(:image)
+    
+    end
   
   # /items/1 GET
   def show
@@ -53,7 +57,7 @@ class ItemsController < ApplicationController
     #    render text: "Item created"
 
     #    render params.inspect
-    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description)
+    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     @item = Item.create(item_params)
     if @item.errors.empty?
       redirect_to item_path(@item)
@@ -66,7 +70,7 @@ class ItemsController < ApplicationController
   
   # /items/1 PUT
   def update
-    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description)
+    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     
     @item.update_attributes(item_params)
     if @item.errors.empty?
@@ -106,10 +110,10 @@ class ItemsController < ApplicationController
     render_404 unless @item
   end
   
-#  removed to app_controller in ep.17
-#  def check_if_admin
-#    #    render text: "Access denied", status: 403 unless params[:admin] 
-#    render_403 unless params[:admin]
-#  end
+  #  removed to app_controller in ep.17
+  #  def check_if_admin
+  #    #    render text: "Access denied", status: 403 unless params[:admin] 
+  #    render_403 unless params[:admin]
+  #  end
   
 end

@@ -5,7 +5,8 @@
     <li>Name: <%=  @item.name%></li>
     <li>Price: <%=   @item.price %> $</li>
     <li>Description: <%= urls_to_links(urls_to_images(@item.description)) %></li>
-</ul>
+    </ul>
+<p><%= image_tag @item.image.url.to_s  if @item.image %></p>
 <p>id - <%=  @item.id%></p>
 <br/>
 <p><%=  link_to "Edit item", edit_item_path %></p>
