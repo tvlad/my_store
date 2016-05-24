@@ -60,9 +60,11 @@ class ItemsController < ApplicationController
     item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     @item = Item.create(item_params)
     if @item.errors.empty?
+      flash[:success] = "All good!"
       redirect_to item_path(@item)
       #      render "show"
     else
+      flash.now[:error] = "You make an error in the form. Please correct it!"
       render "new"
       #      redirect_to item_path("/items/new")
     end
@@ -74,9 +76,11 @@ class ItemsController < ApplicationController
     
     @item.update_attributes(item_params)
     if @item.errors.empty?
+      flash[:success] = "All good!"
       redirect_to item_path(@item)
     else
-      render "edit"
+      flash.now[:error] = "You make an error in the form. Please correct it!"
+      render "edit"      
     end
   end
   

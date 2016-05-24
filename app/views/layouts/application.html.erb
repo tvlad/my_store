@@ -7,14 +7,17 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <%= yield %>
 
 
+<p style="color: red;"><%= flash[:error] %></p>
 
-        <br/>
-        <%= render partial: "shared/email" %>
-    </body>
+<p style="color: green;"><%= flash[:success] %></p>
+
+<%= yield %>
+
+
+
+<br/>
+<%= render partial: "shared/email" %>
+</body>
 </html>
