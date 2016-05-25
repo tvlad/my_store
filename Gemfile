@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'haml-rails'
 
 
 # Use ActiveModel has_secure_password

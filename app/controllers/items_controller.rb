@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
     item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     @item = Item.create(item_params)
     if @item.errors.empty?
-      flash[:success] = "All good!"
+      flash[:success] = 'All good!'
       redirect_to item_path(@item)
       #      render "show"
     else
