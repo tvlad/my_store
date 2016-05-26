@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     #    method for "eager loading" - not work now, because it's need to implement "has_one - image"
     #    @items = @items.includes(:image)
     
-    end
+  end
   
   # /items/1 GET
   def show
@@ -43,6 +43,8 @@ class ItemsController < ApplicationController
     #    @item = Item.find(params[:id])
   end
   
+ 
+  
   # /items POST
   def create 
     #    p params 
@@ -57,7 +59,7 @@ class ItemsController < ApplicationController
     #    render text: "Item created"
 
     #    render params.inspect
-    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
+    #    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     @item = Item.create(item_params)
     if @item.errors.empty?
       flash[:success] = 'All good!'
@@ -72,7 +74,7 @@ class ItemsController < ApplicationController
   
   # /items/1 PUT
   def update
-    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
+    #    item_params = params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
     
     @item.update_attributes(item_params)
     if @item.errors.empty?
@@ -112,6 +114,10 @@ class ItemsController < ApplicationController
     #    @item = Item.find(params[:id]) #-was changed in ep. 17
     @item = Item.where(id: params[:id]).first
     render_404 unless @item
+  end
+  
+  def item_params
+    params.require(:item).permit(:price, :name, :real, :weight, :description, :image)
   end
   
   #  removed to app_controller in ep.17
