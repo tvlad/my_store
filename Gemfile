@@ -27,6 +27,8 @@ gem 'devise'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'haml-rails'
+gem 'bootstrap-sass'
+
 
 
 # Use ActiveModel has_secure_password
