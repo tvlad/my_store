@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
   
 #  attr_accessible :price, :name, :real, :weight, :description # depricated for rails 4.x
   
-  validates :price, numericality: {greater_than: 0, allow_nil: true}
+  validates :price, numericality: {greater_than: 0, allow_nil: false}
   validates :name, :description, presence: true
   
   belongs_to :category

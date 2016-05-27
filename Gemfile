@@ -28,6 +28,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'simple_form'
 
 
 
