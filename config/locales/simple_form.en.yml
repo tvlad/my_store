@@ -11,7 +11,8 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     # Examples
-    # labels:
+    
+#     labels:
     #   defaults:
     #     password: 'Password'
     #   user:
@@ -19,7 +20,9 @@ en:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
+    hints:
+         item:
+             name: 'Any name for item'
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
