@@ -58,4 +58,6 @@ RSpec.configure do |config|
 
   # I had add this config for optimisation the test
   config.include FactoryGirl::Syntax::Methods
+
+
 end

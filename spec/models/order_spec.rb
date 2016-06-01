@@ -31,7 +31,7 @@ describe Order do
   end
 
   it 'raises exception if an order has no items in it' do
-    expect(-> {create(:order)}).to raise_exception
+    expect(-> {create(:order)}).to raise_exception("no items in the order")
   end
 
 end
