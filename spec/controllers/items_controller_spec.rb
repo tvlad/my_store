@@ -3,21 +3,21 @@ require 'rails_helper'
 
 describe ItemsController do
 
-  def self.it_renders_404_if_page_not_found(*actions)
-    actions.each do |a|
-      it "#{a} render 404 page" do
-        verb = if a == :update
-                 "PATCH"
-               elsif a == :destroy
-                 "DELETE"
-               else
-                 "GET"
-               end
-        process a, verb, {id: 0}
-        expect(response.status).to eq 404
-      end
-    end
-  end
+  # def self.it_renders_404_if_page_not_found(*actions)
+  #   actions.each do |a|
+  #     it "#{a} render 404 page" do
+  #       verb = if a == :update
+  #                "PATCH"
+  #              elsif a == :destroy
+  #                "DELETE"
+  #              else
+  #                "GET"
+  #              end
+  #       process a, verb, {id: 0}
+  #       expect(response.status).to eq 404
+  #     end
+  #   end
+  # end
 
   it_renders_404_if_page_not_found :show, :edit, :update, :destroy
 
