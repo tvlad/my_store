@@ -3,6 +3,7 @@ require 'rails_helper'
 
 describe ItemsController do
 
+  # removed to other file as a global macros (ep. 46)
   # def self.it_renders_404_if_page_not_found(*actions)
   #   actions.each do |a|
   #     it "#{a} render 404 page" do

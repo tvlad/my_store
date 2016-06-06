@@ -89,7 +89,9 @@ class ItemsController < ApplicationController
   # /items/1 DELETE
   def destroy
     @item.destroy
-    redirect_to action: "index"
+    # removed after implementing 'delete' via ajax (ep.48)
+    # redirect_to action: "index"
+    render json: {success: true}
   end
   
   def upvote
